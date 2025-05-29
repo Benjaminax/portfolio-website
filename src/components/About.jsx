@@ -353,6 +353,8 @@ const About = () => {
                 href="/assets/Benjamin Acheampong Resume.pdf"
                 download="Benjamin Acheampong Resume.pdf"
                 type="application/pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block mt-7 px-6 py-2 rounded-lg bg-[#9EF170] text-[#181818] font-semibold shadow-md hover:bg-[#7ed957] transition-colors"
               >
                 Download Resume
