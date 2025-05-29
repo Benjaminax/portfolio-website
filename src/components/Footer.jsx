@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="flex-1 mb-6 md:mb-0">
             <div className="flex items-center gap-3 mb-2">
-              <div className="bg-cyan-400 rounded-full w-8 h-8 flex items-center justify-center text-black font-bold text-xl">
+              <div className="bg-[#9EF170] rounded-full w-8 h-8 flex items-center justify-center text-black font-bold text-xl transition-colors duration-200 hover:bg-[#7cd957]">
                 B
               </div>
               <span className="font-semibold text-lg text-[#181A1B]">
@@ -24,7 +24,7 @@ const Footer = () => {
                 href="https://github.com/yourusername"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-cyan-500 transition-colors text-[#181A1B]"
+                className="transition-colors text-[#181A1B] hover:text-black hover:bg-[#9EF170] rounded-full p-1"
                 aria-label="GitHub"
               >
                 <FaGithub />
@@ -33,7 +33,7 @@ const Footer = () => {
                 href="https://linkedin.com/in/yourusername"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-cyan-500 transition-colors text-[#181A1B]"
+                className="transition-colors text-[#181A1B] hover:text-black hover:bg-[#9EF170] rounded-full p-1"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin />
@@ -48,7 +48,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#projects"
-                    className="hover:text-cyan-500"
+                    className="hover:text-[#9EF170]"
                   >
                     Projects
                   </a>
@@ -56,7 +56,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#about"
-                    className="hover:text-cyan-500"
+                    className="hover:text-[#9EF170]"
                   >
                     About Me
                   </a>
@@ -64,7 +64,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#contact"
-                    className="hover:text-cyan-500"
+                    className="hover:text-[#9EF170]"
                   >
                     Contact
                   </a>
@@ -79,7 +79,7 @@ const Footer = () => {
                     href="https://github.com/yourusername"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-cyan-500"
+                    className="hover:text-[#9EF170]"
                   >
                     GitHub
                   </a>
@@ -89,7 +89,7 @@ const Footer = () => {
                     href="https://linkedin.com/in/yourusername"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-cyan-500"
+                    className="hover:text-[#9EF170]"
                   >
                     LinkedIn
                   </a>
@@ -97,7 +97,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="mailto:your@email.com"
-                    className="hover:text-cyan-500"
+                    className="hover:text-[#9EF170]"
                   >
                     Email
                   </a>
@@ -109,8 +109,8 @@ const Footer = () => {
               <ul className="space-y-1 text-gray-500 text-sm">
                 <li>
                   <a
-                    href="#"
-                    className="hover:text-cyan-500"
+                    href="#about-resume"
+                    className="hover:text-[#9EF170]"
                   >
                     Resume
                   </a>
@@ -118,7 +118,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-cyan-500"
+                    className="hover:text-[#9EF170]"
                   >
                     Blog
                   </a>
@@ -132,20 +132,6 @@ const Footer = () => {
           <span>
             © {new Date().getFullYear()} Benjamin Acheampong. All rights reserved.
           </span>
-          <div className="flex gap-4 mt-2 md:mt-0">
-            <a
-              href="#"
-              className="hover:text-cyan-500"
-            >
-              Terms of Service
-            </a>
-            <a
-              href="#"
-              className="hover:text-cyan-500"
-            >
-              Privacy Policy
-            </a>
-          </div>
         </div>
       </div>
     </footer>

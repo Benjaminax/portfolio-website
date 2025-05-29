@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import flappyImg from "../assets/images/flappy.png";
 import knowledgeHubImg from "../assets/images/knowlegde hub.png";
 import targetHittingThumb from "../assets/images/target hitting game .mp4";
+import mediaSorterImg from "../assets/images/media sorter.png"; // Add this import
 
 const projects = [
 	{
@@ -16,8 +17,7 @@ const projects = [
 		title: "Movies/Series File Sorter",
 		description:
 			"Automated Python program that organizes downloaded files into movies and series using naming conventions, file sizes, and formats. Handles edge cases, Blu-ray tags, and special characters for accurate sorting.",
-		image:
-			"https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
+		image: mediaSorterImg, // Use the new thumbnail here
 		link: "https://github.com/Benjaminax/Media-Sorter",
 		tags: ["Python", "Automation", "File System"],
 	},

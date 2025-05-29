@@ -68,7 +68,7 @@ const Hero = () => {
             className="font-montserrat text-[36px] md:text-[51px] font-normal bg-gradient-to-r from-[#9EF170] to-[#0E2600] bg-clip-text text-transparent block mb-[8px] md:mb-[12px] text-left whitespace-nowrap leading-[1.1]"
             variants={itemVariants}
           >
-            Benjamin Acheampong
+            Benjamin <span className="block md:inline">Acheampong</span>
           </motion.span>
           {/* Typing effect */}
           <motion.span

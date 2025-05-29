@@ -136,22 +136,26 @@ const BarChart = () => {
           >
             <div className="mr-4">{metric.icon}</div>
             <div className="relative flex items-center justify-center mr-4">
-              <svg width={CIRCLE_SIZE * 0.7} height={CIRCLE_SIZE * 0.7}>
+              <svg
+                width={CIRCLE_SIZE * 0.7}
+                height={CIRCLE_SIZE * 0.7}
+                viewBox={`0 0 ${CIRCLE_SIZE * 0.7} ${CIRCLE_SIZE * 0.7}`}
+              >
                 <circle
                   cx={(CIRCLE_SIZE * 0.7) / 2}
                   cy={(CIRCLE_SIZE * 0.7) / 2}
-                  r={RADIUS * 0.7}
+                  r={(RADIUS * 0.7)}
                   fill="none"
                   stroke="#232323"
-                  strokeWidth={STROKE_WIDTH}
+                  strokeWidth={STROKE_WIDTH * 0.7}
                 />
                 <circle
                   cx={(CIRCLE_SIZE * 0.7) / 2}
                   cy={(CIRCLE_SIZE * 0.7) / 2}
-                  r={RADIUS * 0.7}
+                  r={(RADIUS * 0.7)}
                   fill="none"
                   stroke={metric.color}
-                  strokeWidth={STROKE_WIDTH}
+                  strokeWidth={STROKE_WIDTH * 0.7}
                   strokeDasharray={CIRCUMFERENCE * 0.7}
                   strokeDashoffset={dashOffset * 0.7}
                   strokeLinecap="round"
@@ -227,22 +231,22 @@ const FunTimeline = () => {
       {funTimeline.map((item, idx) => (
         <div
           key={idx}
-          className={`relative z-10 flex items-center mb-12 transition-all duration-700
+          className={`relative z-10 flex flex-col sm:flex-row items-center mb-8 sm:mb-12 transition-all duration-700
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
           `}
           style={{ transitionDelay: `${idx * 200}ms` }}
         >
-          <div className="flex flex-col items-center mr-8">
+          <div className="flex flex-col items-center sm:mr-8 mb-4 sm:mb-0">
             <div className="bg-[#232323] rounded-full p-4 shadow-lg border-4 border-[#9EF170] animate-pulse">
               {item.icon}
             </div>
             {idx < funTimeline.length - 1 && (
-              <div className="w-1 h-12 bg-gradient-to-b from-[#9EF170] to-transparent opacity-60" />
+              <div className="w-1 h-8 sm:h-12 bg-gradient-to-b from-[#9EF170] to-transparent opacity-60" />
             )}
           </div>
-          <div className="bg-[#181818] rounded-xl shadow-lg p-6 w-80">
-            <h4 className="text-[#9EF170] font-bold text-lg mb-2">{item.title}</h4>
-            <p className="text-[#AEAEAE]">{item.fact}</p>
+          <div className="bg-[#181818] rounded-xl shadow-lg p-4 sm:p-6 w-full max-w-xs sm:w-80">
+            <h4 className="text-[#9EF170] font-bold text-base sm:text-lg mb-1 sm:mb-2">{item.title}</h4>
+            <p className="text-[#AEAEAE] text-sm sm:text-base">{item.fact}</p>
           </div>
         </div>
       ))}
@@ -303,13 +307,6 @@ const About = () => {
             About Me
           </h2>
           <div className="w-[80px] sm:w-[121px] h-[7px] sm:h-[9px] rounded-[25px] bg-gradient-to-r from-[#9EF170] to-[#0E0E0E] mx-auto"></div>
-          <a
-            href="/assets/Benjamin Acheampong Resume.pdf"
-            download
-            className="inline-block mt-5 px-6 py-2 rounded-lg bg-[#9EF170] text-[#181818] font-semibold shadow-md hover:bg-[#7ed957] transition-colors"
-          >
-            Download Resume
-          </a>
         </div>
 
         <div className="flex flex-col lg:flex-row items-start relative gap-8">
@@ -350,6 +347,16 @@ const About = () => {
               <p>
                 Technology is my tool. Impact is my goal. And this portfolio is a glimpse into the path I'm building one project, one idea, one challenge at a time.
               </p>
+              {/* Resume Download Button with id moved down */}
+              <a
+                id="about-resume"
+                href="/assets/Benjamin Acheampong Resume.pdf"
+                download="Benjamin Acheampong Resume.pdf"
+                type="application/pdf"
+                className="inline-block mt-7 px-6 py-2 rounded-lg bg-[#9EF170] text-[#181818] font-semibold shadow-md hover:bg-[#7ed957] transition-colors"
+              >
+                Download Resume
+              </a>
             </div>
           </div>
 

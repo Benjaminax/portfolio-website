@@ -144,7 +144,7 @@ const Contact = () => {
           </div>
           
           {/* Contact info */}
-          <div className="absolute top-[90px] md:top-[110px] left-0 right-0 w-full flex flex-col items-start gap-10 md:gap-8 ml-17 md:ml-10 pr-0">
+          <div className="absolute top-[90px] md:top-[110px] left-0 right-0 w-full flex flex-col items-center justify-center gap-10 md:gap-8 pr-0">
             {/* Email */}
             <a
               href="mailto:kojoben29@gmail.com"
