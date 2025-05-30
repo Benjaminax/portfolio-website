@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { FaGamepad, FaPaintBrush, FaRocket, FaProjectDiagram, FaRegClock, FaCode } from "react-icons/fa";
-import resumePDF from '../assets/Benjamin_Acheampong_Resume.pdf?url';
+import resumePDF from '../assets/Benjamin_Acheampong_Resume.pdf';
 
 const CIRCLE_SIZE = 110;
 const STROKE_WIDTH = 10;
@@ -43,7 +43,7 @@ const BarChart = () => {
     const observer = new window.IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setProgress({ projects: 12, experience: 4, loc: 50000 });
+          setProgress({ projects: 4, experience: 2, loc: 50000 });
         } else {
           setProgress({ projects: 0, experience: 0, loc: 0 });
         }
