@@ -350,8 +350,8 @@ const About = () => {
               {/* Resume Download Button with id moved down */}
               <a
                 id="about-resume"
-                href="/assets/Benjamin Acheampong Resume.pdf"
-                download="Benjamin Acheampong Resume.pdf"
+                href="/assets/Benjamin_Acheampong_Resume.pdf"
+                download="Benjamin_Acheampong_Resume.pdf"
                 type="application/pdf"
                 className="inline-block mt-7 px-6 py-2 rounded-lg bg-[#9EF170] text-[#181818] font-semibold shadow-md hover:bg-[#7ed957] transition-colors"
               >
