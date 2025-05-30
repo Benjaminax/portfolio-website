@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { FaGamepad, FaPaintBrush, FaRocket, FaProjectDiagram, FaRegClock, FaCode } from "react-icons/fa";
-import resumePDF from '../assets/Benjamin_Acheampong_Resume.pdf';
+import resumePDF from '../assets/Benjamin_Acheampong_Resume.pdf?url';
 
 const CIRCLE_SIZE = 110;
 const STROKE_WIDTH = 10;
@@ -353,7 +353,6 @@ const About = () => {
                 id="about-resume"
                 href={resumePDF}
                 download="Benjamin_Acheampong_Resume.pdf"
-                type="application/pdf"
                 className="inline-block mt-7 px-6 py-2 rounded-lg bg-[#9EF170] text-[#181818] font-semibold shadow-md hover:bg-[#7ed957] transition-colors"
               >
                 Download Resume
