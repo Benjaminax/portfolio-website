@@ -18,7 +18,7 @@ const projects = [
 		description:
 			"Automated Python program that organizes downloaded files into movies and series using naming conventions, file sizes, and formats. Handles edge cases, Blu-ray tags, and special characters for accurate sorting.",
 		image: mediaSorterImg, // Use the new thumbnail here
-		link: "https://github.com/Benjaminax/Media-Sorter",
+		link: "https://github.com/Benjaminax/Mediaflix",
 		tags: ["Python", "Automation", "File System"],
 	},
 	{
