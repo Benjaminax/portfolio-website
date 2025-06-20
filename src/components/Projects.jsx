@@ -14,7 +14,7 @@ const projects = [
 		tags: ["React", "Tailwind", "Express.js", "MongoDB", "Full Stack"],
 	},
 	{
-		title: "Movies/Series File Sorter",
+		title: "Mediaflix",
 		description:
 			"Automated Python program that organizes downloaded files into movies and series using naming conventions, file sizes, and formats. Handles edge cases, Blu-ray tags, and special characters for accurate sorting.",
 		image: mediaSorterImg, // Use the new thumbnail here
