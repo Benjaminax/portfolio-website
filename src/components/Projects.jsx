@@ -19,7 +19,7 @@ const projects = [
 		description:
 			"A modern, visually stunning block puzzle game built with React, featuring smooth animations, immersive sound effects, and a beautiful dark theme. Includes drag & drop gameplay, combo system, audio controls, and auto-save functionality.",
 		image: blxstImg,
-		link: "https://github.com/Benjaminax/blxst", // Update with your actual repo URL
+		link: "https://blxst-game.vercel.app/",
 		tags: ["React", "Jotai", "Framer Motion", "Tailwind", "Game Dev"],
 	},
 	{
