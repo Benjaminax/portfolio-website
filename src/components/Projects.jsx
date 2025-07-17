@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import flappyImg from "../assets/images/flappy.png";
 import knowledgeHubImg from "../assets/images/knowlegde hub.png";
 import targetHittingThumb from "../assets/images/target hitting game .mp4";
-import mediaSorterImg from "../assets/images/media sorter.png"; // Add this import
+import mediaSorterImg from "../assets/images/media sorter.png";
+import blxstImg from "../assets/images/blxst.png"; // Add this import
 
 const projects = [
 	{
@@ -14,10 +15,18 @@ const projects = [
 		tags: ["React", "Tailwind", "Express.js", "MongoDB", "Full Stack"],
 	},
 	{
+		title: "BLXST - Block Puzzle Game",
+		description:
+			"A modern, visually stunning block puzzle game built with React, featuring smooth animations, immersive sound effects, and a beautiful dark theme. Includes drag & drop gameplay, combo system, audio controls, and auto-save functionality.",
+		image: blxstImg,
+		link: "https://github.com/Benjaminax/blxst", // Update with your actual repo URL
+		tags: ["React", "Jotai", "Framer Motion", "Tailwind", "Game Dev"],
+	},
+	{
 		title: "Mediaflix",
 		description:
 			"Automated Python program that organizes downloaded files into movies and series using naming conventions, file sizes, and formats. Handles edge cases, Blu-ray tags, and special characters for accurate sorting.",
-		image: mediaSorterImg, // Use the new thumbnail here
+		image: mediaSorterImg,
 		link: "https://github.com/Benjaminax/Mediaflix",
 		tags: ["Python", "Automation", "File System"],
 	},

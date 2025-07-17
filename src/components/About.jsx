@@ -43,7 +43,7 @@ const BarChart = () => {
     const observer = new window.IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setProgress({ projects: 4, experience: 2, loc: 50000 });
+          setProgress({ projects: 5, experience: 2, loc: 50000 });
         } else {
           setProgress({ projects: 0, experience: 0, loc: 0 });
         }
