@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { FaGamepad, FaPaintBrush, FaRocket, FaProjectDiagram, FaRegClock, FaCode } from "react-icons/fa";
-import resumePDF from '../assets/Benjamin_Acheampong_Resume.pdf';
+import resumePDF from '../assets/Benjamin_Acheampong_SWE_Resume.pdf';
 
 const CIRCLE_SIZE = 110;
 const STROKE_WIDTH = 10;
