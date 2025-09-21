@@ -352,7 +352,7 @@ const About = () => {
               <a
                 id="about-resume"
                 href={resumePDF}
-                download="Benjamin_Acheampong_Resume.pdf"
+                download="Benjamin_Acheampong_SWE_Resume.pdf"
                 className="inline-block mt-7 px-6 py-2 rounded-lg bg-[#9EF170] text-[#181818] font-semibold shadow-md hover:bg-[#7ed957] transition-colors"
               >
                 Download Resume
