@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import flappyImg from "../assets/images/flappy.png";
 import knowledgeHubImg from "../assets/images/knowlegde hub.png";
 import targetHittingThumb from "../assets/images/target hitting game .mp4";
-import thirdPersonShooterThumb from "../assets/images/Third Person Shooter.mp4";
+import thirdPersonShooterThumb from "../assets/images/Third Person Shooter.web.mp4";
 import mediaSorterImg from "../assets/images/media sorter.png";
 import blxstImg from "../assets/images/blxst.png"; // Add this import
 
@@ -113,13 +113,17 @@ const Projects = () => {
 					>
 						{project.isVideo ? (
 							<video
-								src={project.image}
 								className="h-48 w-full object-cover"
 								autoPlay
+								controls
 								loop
 								muted
 								playsInline
-							/>
+								preload="metadata"
+							>
+								<source src={project.image} type="video/mp4" />
+								Your browser does not support the video tag.
+							</video>
 						) : (
 							<img
 								src={project.image}
