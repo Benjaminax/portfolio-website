@@ -63,13 +63,22 @@ const allTags = [
 	...new Set(projects.flatMap((project) => project.tags)),
 ];
 
+const normalizeTag = (tag) => tag.toLowerCase().trim();
+
+const filterTags = [
+	{ label: "All", value: "all" },
+	...allTags.map((tag) => ({ label: tag, value: normalizeTag(tag) })),
+];
+
 const Projects = () => {
-	const [selectedTag, setSelectedTag] = useState("All");
+	const [selectedTag, setSelectedTag] = useState("all");
 
 	const filteredProjects =
-		selectedTag === "All"
+		selectedTag === "all"
 			? projects
-			: projects.filter((project) => project.tags.includes(selectedTag));
+			: projects.filter((project) =>
+				project.tags.some((tag) => normalizeTag(tag) === selectedTag),
+		  );
 
 	return (
 		<section
@@ -81,27 +90,17 @@ const Projects = () => {
 			</h2>
 			{/* Filter */}
 			<div className="flex flex-wrap gap-3 justify-center mb-10">
-				<button
-					className={`px-4 py-1 rounded-full border border-[#9EF170] text-sm font-semibold transition ${
-						selectedTag === "All"
-							? "bg-[#9EF170] text-[#232323]"
-							: "bg-transparent text-[#9EF170] hover:bg-[#232323]/60"
-					}`}
-					onClick={() => setSelectedTag("All")}
-				>
-					All
-				</button>
-				{allTags.map((tag) => (
+				{filterTags.map((tag) => (
 					<button
-						key={tag}
+						key={tag.value}
 						className={`px-4 py-1 rounded-full border border-[#9EF170] text-sm font-semibold transition ${
-							selectedTag === tag
+							selectedTag === tag.value
 								? "bg-[#9EF170] text-[#232323]"
 								: "bg-transparent text-[#9EF170] hover:bg-[#232323]/60"
 						}`}
-						onClick={() => setSelectedTag(tag)}
+						onClick={() => setSelectedTag(tag.value)}
 					>
-						{tag}
+						{tag.label}
 					</button>
 				))}
 			</div>
