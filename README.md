@@ -4,7 +4,6 @@ This project now includes a full contact flow:
 
 - React contact form in `src/components/Contact.jsx`
 - Express API route at `POST /api/contact`
-- MongoDB storage in collection `contact_messages`
 - Email notifications sent to your inbox whenever someone submits the form
 
 ## 1. Install Dependencies
@@ -32,9 +31,6 @@ Required variables in `server/.env`:
 ```env
 PORT=5000
 
-MONGODB_URI=mongodb://127.0.0.1:27017
-MONGODB_DB_NAME=portfolio_contact
-
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=465
 SMTP_SECURE=true
@@ -48,7 +44,6 @@ MAIL_TO=your-email@gmail.com
 Notes:
 
 - If you use Gmail, set up a Google App Password and use it in `SMTP_PASS`.
-- The database and collection are created automatically on first successful submission.
 
 ## 3. Start App + API Together
 
@@ -69,8 +64,7 @@ Vite proxies `/api/*` calls to the backend in development.
 2. Fill the contact form.
 3. Submit.
 4. Confirm:
-	 - You receive an email at `MAIL_TO`.
-	 - Document is stored in MongoDB database `MONGODB_DB_NAME`, collection `contact_messages`.
+   - You receive an email at `MAIL_TO`.
 
 ## API
 

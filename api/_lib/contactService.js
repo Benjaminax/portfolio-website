@@ -1,9 +1,6 @@
-import { MongoClient } from 'mongodb';
 import nodemailer from 'nodemailer';
 
 const requiredEnvVars = [
-  'MONGODB_URI',
-  'MONGODB_DB_NAME',
   'SMTP_HOST',
   'SMTP_PORT',
   'SMTP_USER',
@@ -13,8 +10,6 @@ const requiredEnvVars = [
 
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-let cachedClient = globalThis.__mongoClient;
-let cachedCollection = globalThis.__contactMessagesCollection;
 let cachedTransport = globalThis.__contactMailTransport;
 let cachedIssue = globalThis.__contactStartupIssue || '';
 
@@ -35,18 +30,6 @@ const ensureServices = async () => {
       cachedIssue = envIssue;
       globalThis.__contactStartupIssue = cachedIssue;
       return { ready: false, issue: cachedIssue };
-    }
-
-    if (!cachedClient) {
-      cachedClient = new MongoClient(process.env.MONGODB_URI);
-      await cachedClient.connect();
-      globalThis.__mongoClient = cachedClient;
-    }
-
-    if (!cachedCollection) {
-      const db = cachedClient.db(process.env.MONGODB_DB_NAME);
-      cachedCollection = db.collection('contact_messages');
-      globalThis.__contactMessagesCollection = cachedCollection;
     }
 
     if (!cachedTransport) {
@@ -107,8 +90,6 @@ const submitContact = async ({ name, email, message, userAgent }) => {
   if (!doc.name || !doc.email || !doc.message) {
     return { status: 400, body: { error: 'Please complete all fields.' } };
   }
-
-  await cachedCollection.insertOne(doc);
 
   await cachedTransport.sendMail({
     from: process.env.MAIL_FROM || process.env.SMTP_USER,

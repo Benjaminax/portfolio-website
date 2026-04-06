@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import nodemailer from 'nodemailer';
-import { MongoClient } from 'mongodb';
 
 dotenv.config({ path: 'server/.env' });
 dotenv.config();
@@ -14,8 +13,6 @@ app.use(cors());
 app.use(express.json());
 
 const requiredEnvVars = [
-  'MONGODB_URI',
-  'MONGODB_DB_NAME',
   'SMTP_HOST',
   'SMTP_PORT',
   'SMTP_USER',
@@ -25,8 +22,6 @@ const requiredEnvVars = [
 
 const missingEnvVars = requiredEnvVars.filter((name) => !process.env[name]);
 
-let mongoClient;
-let messagesCollection;
 let mailTransport;
 let startupIssue = '';
 
@@ -37,12 +32,6 @@ const initServices = async () => {
   }
 
   try {
-    mongoClient = new MongoClient(process.env.MONGODB_URI);
-    await mongoClient.connect();
-
-    const db = mongoClient.db(process.env.MONGODB_DB_NAME);
-    messagesCollection = db.collection('contact_messages');
-
     mailTransport = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
@@ -70,7 +59,7 @@ const isValidEmail = (email) => {
 };
 
 app.get('/api/health', (_req, res) => {
-  const ready = Boolean(messagesCollection && mailTransport);
+  const ready = Boolean(mailTransport);
   res.status(ready ? 200 : 503).json({
     ok: ready,
     service: 'contact',
@@ -80,7 +69,7 @@ app.get('/api/health', (_req, res) => {
 
 app.post('/api/contact', async (req, res) => {
   try {
-    if (!messagesCollection || !mailTransport) {
+    if (!mailTransport) {
       return res.status(503).json({
         error: startupIssue || 'Contact service is not configured yet. Check server/.env.',
       });
@@ -107,8 +96,6 @@ app.post('/api/contact', async (req, res) => {
     if (!doc.name || !doc.email || !doc.message) {
       return res.status(400).json({ error: 'Please complete all fields.' });
     }
-
-    await messagesCollection.insertOne(doc);
 
     await mailTransport.sendMail({
       from: process.env.MAIL_FROM || process.env.SMTP_USER,
