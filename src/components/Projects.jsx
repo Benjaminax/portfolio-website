@@ -65,11 +65,26 @@ const normalizeTag = (tag) => tag.toLowerCase().trim();
 const filterTags = [
 	{ label: "All", value: "all" },
 	{ label: "React", value: "react" },
+	{ label: "Electron", value: "electron" },
+	{ label: "TypeScript", value: "typescript" },
 	{ label: "Game Dev", value: "game dev" },
 	{ label: "Unreal Engine", value: "unreal engine" },
-	{ label: "Electron", value: "electron" },
+	{ label: "Unity", value: "unity" },
+	{ label: "C#", value: "c#" },
+	{ label: "C++", value: "c++" },
+	{ label: "Python", value: "python" },
+	{ label: "Express.js", value: "express.js" },
+	{ label: "MongoDB", value: "mongodb" },
+	{ label: "Tailwind", value: "tailwind" },
 	{ label: "Full Stack", value: "full stack" },
-	{ label: "TypeScript", value: "typescript" },
+	{ label: "TMDB", value: "tmdb" },
+	{ label: "VLC", value: "vlc" },
+	{ label: "Blueprints", value: "blueprints" },
+	{ label: "Animation", value: "animation" },
+	{ label: "Framer Motion", value: "framer motion" },
+	{ label: "Jotai", value: "jotai" },
+	{ label: "Automation", value: "automation" },
+	{ label: "File System", value: "file system" },
 ];
 
 const Projects = () => {
@@ -91,14 +106,14 @@ const Projects = () => {
 				My Projects
 			</h2>
 			{/* Filter */}
-			<div className="flex flex-wrap gap-3 justify-center mb-10">
+			<div className="flex flex-wrap gap-2 justify-center mb-10">
 				{filterTags.map((tag) => (
 					<button
 						key={tag.value}
-						className={`px-4 py-1 rounded-full border border-[#9EF170] text-sm font-semibold transition ${
+						className={`px-3 py-1 rounded-full text-sm font-medium transition ${
 							selectedTag === tag.value
 								? "bg-[#9EF170] text-[#232323]"
-								: "bg-transparent text-[#9EF170] hover:bg-[#232323]/60"
+								: "bg-transparent text-[#9EF170] border border-[#9EF170] hover:bg-[#9EF170]/10"
 						}`}
 						onClick={() => setSelectedTag(tag.value)}
 					>
