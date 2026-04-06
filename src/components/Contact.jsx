@@ -177,11 +177,11 @@ const Contact = () => {
           <div className="w-full h-[4px] md:h-[7px] bg-black mt-2 mb-6 md:mb-10 rounded" />
           <div className="w-full max-w-full md:max-w-[620px] font-montserrat text-[15px] md:text-[17px] font-normal text-black leading-relaxed mb-4 md:mb-6 text-left">
             <p>
-              Send me a message directly from this form. I will receive it by email and keep a record in MongoDB.
+              I would love to hear from you. Send me a message here anytime, and I will get it straight in my inbox.
             </p>
             <div className="my-2 md:my-4" />
             <p>
-              You can still reach me at kojoben29@gmail.com if you prefer to email manually.
+              Prefer email? You can always reach me directly at kojoben29@gmail.com.
             </p>
           </div>
           <div className="w-[120px] md:w-[200px] h-[3px] md:h-[5px] bg-black mb-6 md:mb-10 rounded" />
