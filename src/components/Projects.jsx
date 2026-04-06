@@ -3,7 +3,7 @@ import flappyImg from "../assets/images/flappy.png";
 import knowledgeHubImg from "../assets/images/knowlegde hub.png";
 import targetHittingThumb from "../assets/images/target hitting game .mp4";
 import thirdPersonShooterThumb from "../assets/images/Third Person Shooter.web.mp4";
-import cineStreamThumb from "../assets/images/cine.mp4";
+import cineStreamThumb from "../assets/images/cine.web.mp4";
 import blxstImg from "../assets/images/blxst.png"; // Add this import
 
 const projects = [
@@ -106,14 +106,14 @@ const Projects = () => {
 				My Projects
 			</h2>
 			{/* Filter */}
-			<div className="flex flex-wrap gap-2 justify-center mb-10">
+			<div className="flex flex-wrap gap-2 justify-center mb-12 px-4">
 				{filterTags.map((tag) => (
 					<button
 						key={tag.value}
-						className={`px-3 py-1 rounded-full text-sm font-medium transition ${
+						className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 transform hover:scale-105 ${
 							selectedTag === tag.value
-								? "bg-[#9EF170] text-[#232323]"
-								: "bg-transparent text-[#9EF170] border border-[#9EF170] hover:bg-[#9EF170]/10"
+								? "bg-gradient-to-r from-[#9EF170] to-[#b6ff8a] text-[#0a0a0a] shadow-lg shadow-[#9EF170]/50"
+								: "bg-[#1a1a1a] text-[#9EF170] border border-[#9EF170]/40 hover:border-[#9EF170] hover:shadow-md hover:shadow-[#9EF170]/20"
 						}`}
 						onClick={() => setSelectedTag(tag.value)}
 					>
