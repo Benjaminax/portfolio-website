@@ -1,0 +1,186 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  pdftitle={UE 5.7 Third Person Shooter Documentation},
+  pdfauthor={Kojo B}
+}
+
+\newcommand{\screenshot}[2]{%
+  \begin{figure}[h!]
+    \centering
+    % Replace image path with your screenshot file (PNG/JPG)
+    \fbox{\parbox[c][2.3in][c]{0.9\linewidth}{\centering Screenshot placeholder: #1}}
+    \caption{#2}
+  \end{figure}
+}
+
+\title{Third Person Shooter Project Documentation \\
+\large Unreal Engine 5.7}
+\author{Kojo B}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Project Summary}
+This document describes the development of a third person shooter game built in Unreal Engine 5.7. The game uses a custom player character (\textbf{QuantumCharacter}), a stylized environment (\textbf{Stylized\_Egypt}), animation systems based on Unreal Animation Blueprints and Mixamo assets, and combat systems including line tracing, muzzle flash effects, and AI enemy damage.
+
+\subsection{Gameplay Media}
+Primary gameplay video file used in this portfolio project:
+\begin{itemize}[leftmargin=*]
+  \item \texttt{src/assets/images/Third Person Shooter.mp4}
+\end{itemize}
+
+\section{Tools, Engine, and Pipeline}
+\begin{itemize}[leftmargin=*]
+  \item Engine: Unreal Engine 5.7
+  \item Core animation system: Animation Blueprint + Animation State Machine
+  \item Character animation source: Mixamo
+  \item Marketplace source: Fab Library assets
+  \item Audio source: YouTube (footsteps, gun shot, impact shot)
+\end{itemize}
+
+\section{Asset Attribution and Source Links}
+The table below captures all referenced assets and source links for documentation and academic/project transparency.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\linewidth} >{\raggedright\arraybackslash}p{0.26\linewidth} >{\raggedright\arraybackslash}p{0.40\linewidth}}
+\toprule
+\textbf{Asset / Content} & \textbf{Usage in Game} & \textbf{Source Link} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Asset / Content} & \textbf{Usage in Game} & \textbf{Source Link} \\
+\midrule
+\endhead
+Infinity Blade Effects (Fab) & Visual effects (combat feedback, impact/magic-style FX where applicable) & \url{https://www.fab.com/search?q=Infinity%20Blade%20Effects} \\
+Fab Library (General) & Third-party game-ready assets & \url{https://www.fab.com/} \\
+Stylized\_Egypt (Map) & Main level/environment for gameplay & \url{https://www.fab.com/search?q=Stylized%20Egypt} \\
+QuantumCharacter & Playable third person character & \textit{Add exact creator/listing URL if custom or marketplace sourced} \\
+Mixamo animations & Character motion set and imported animation clips & \url{https://www.mixamo.com/} \\
+YouTube audio: footsteps & Character movement SFX & \textit{Add exact YouTube video URL(s)} \\
+YouTube audio: gun shot & Weapon fire SFX & \textit{Add exact YouTube video URL(s)} \\
+YouTube audio: impact shot & Hit/impact SFX & \textit{Add exact YouTube video URL(s)} \\
+\bottomrule
+\end{longtable}
+
+\textbf{Note:} If your reviewer requires exact listing links per asset, update the table with direct Fab product URLs and exact YouTube URLs for each downloaded audio clip.
+
+\section{Implemented Features and Technical Work}
+This section documents what was implemented during production.
+
+\subsection{Animation and Character Systems}
+\begin{itemize}[leftmargin=*]
+  \item Created an Animation Blueprint for \textbf{QuantumCharacter}.
+  \item Implemented sprint action input and movement-speed-driven transitions.
+  \item Implemented crouch input and crouch animation behavior.
+  \item Added weapon integration with animation-ready combat poses.
+  \item Built an Animation State Machine for idle, walk, run, sprint, crouch, and combat states.
+  \item Added aim offset animation for directional aiming support.
+  \item Implemented switching between animation states based on gameplay inputs and velocity.
+\end{itemize}
+
+\subsection{Camera and Aiming Systems}
+\begin{itemize}[leftmargin=*]
+  \item Implemented camera zoom effect while aiming (ADS behavior).
+  \item Linked aiming state to animation logic and combat flow.
+  \item Fixed crosshair behavior to align aiming and hit registration expectations.
+\end{itemize}
+
+\subsection{Combat and Weapon Systems}
+\begin{itemize}[leftmargin=*]
+  \item Implemented line tracing from weapon muzzle direction for hit detection.
+  \item Added muzzle flash visual effect and weapon shot audio.
+  \item Added impact shot sound/effect feedback on successful hits.
+\end{itemize}
+
+\subsection{Enemy AI and Health Systems}
+\begin{itemize}[leftmargin=*]
+  \item Implemented enemy AI behavior and applied damage logic.
+  \item Added AI Pawn Sensing for player detection/perception.
+  \item Added health bars for both player and enemy.
+\end{itemize}
+
+\section{Requirement Coverage (Question-Oriented)}
+Use this section if your course/project rubric asks direct questions. The answers below map your implementation to likely grading prompts.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.36\linewidth} >{\raggedright\arraybackslash}p{0.56\linewidth}}
+\toprule
+\textbf{Typical Requirement Question} & \textbf{How This Project Satisfies It} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Typical Requirement Question} & \textbf{How This Project Satisfies It} \\
+\midrule
+\endhead
+What engine and version was used? & Unreal Engine 5.7 was used for all gameplay systems and content integration. \\
+What character/animation system was implemented? & Animation Blueprint + State Machine, sprint and crouch input handling, aim offset setup, and animation state switching. \\
+How was combat implemented? & Weapon line tracing, muzzle flash effect, shot and impact audio, and damage application to enemy AI. \\
+How was enemy behavior implemented? & Enemy AI with pawn sensing and reaction logic; health bar and damage handling included. \\
+What UI/gameplay feedback was implemented? & Crosshair fixes plus player and enemy health bar UI. \\
+What external assets were used and how were they credited? & Fab assets (including Infinity Blade effects and Stylized\_Egypt map), Mixamo animations, and YouTube audio with links in the attribution section. \\
+\bottomrule
+\end{longtable}
+
+\section{Screenshots Section (Fill-In Templates)}
+Insert your real screenshots by replacing placeholders with image files.
+
+\subsection{Character and Animation}
+\screenshot{screenshots/anim_blueprint_overview.png}{Animation Blueprint graph overview}
+\screenshot{screenshots/state_machine.png}{Animation State Machine transitions}
+\screenshot{screenshots/sprint_crouch_demo.png}{Sprint and crouch behavior in gameplay}
+
+\subsection{Aiming and Weapon Mechanics}
+\screenshot{screenshots/aim_zoom.png}{Camera zoom while aiming}
+\screenshot{screenshots/aim_offset.png}{Aim offset setup and directional aiming}
+\screenshot{screenshots/line_trace_debug.png}{Weapon line trace debug visualization}
+
+\subsection{Effects and Audio}
+\screenshot{screenshots/muzzle_flash.png}{Muzzle flash at fire event}
+\screenshot{screenshots/impact_feedback.png}{Impact effect and hit feedback}
+
+\subsection{AI and UI}
+\screenshot{screenshots/ai_pawn_sensing.png}{AI pawn sensing configuration and detection}
+\screenshot{screenshots/enemy_damage.png}{Enemy AI taking damage}
+\screenshot{screenshots/health_bars.png}{Player and enemy health bar UI}
+\screenshot{screenshots/crosshair_fix.png}{Final crosshair alignment and behavior}
+
+\section{Testing and Validation Notes}
+\begin{itemize}[leftmargin=*]
+  \item Confirmed crouch and sprint transitions in Animation Blueprint state machine.
+  \item Confirmed aiming camera zoom activates and deactivates correctly.
+  \item Confirmed line trace hits expected targets and applies damage.
+  \item Confirmed muzzle flash and audio trigger on fire action.
+  \item Confirmed AI detects player through pawn sensing and reacts.
+  \item Confirmed health bars update for both player and enemy.
+  \item Confirmed crosshair fix improves shot alignment feedback.
+\end{itemize}
+
+\section{Known Gaps and Final Submission Checklist}
+\begin{itemize}[leftmargin=*]
+  \item Add exact Fab listing URLs for Infinity Blade effects, Stylized\_Egypt, and QuantumCharacter (if marketplace sourced).
+  \item Add exact YouTube links for footsteps, gun shot, and impact shot audio sources.
+  \item Replace screenshot placeholders with actual project captures.
+  \item Optional: add Git commit hash/version tag for final build reproducibility.
+\end{itemize}
+
+\section{Conclusion}
+This UE 5.7 third person shooter project demonstrates a complete gameplay loop including locomotion animations, aiming, weapon combat, AI sensing/damage, and player feedback UI. The implementation combines marketplace assets, custom Blueprint logic, and third-party animation/audio resources into a playable and documented prototype.
+
+\end{document}
