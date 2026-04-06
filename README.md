@@ -1,12 +1,88 @@
-# React + Vite
+# Portfolio Website Contact Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project now includes a full contact flow:
 
-Currently, two official plugins are available:
+- React contact form in `src/components/Contact.jsx`
+- Express API route at `POST /api/contact`
+- MongoDB storage in collection `contact_messages`
+- Email notifications sent to your inbox whenever someone submits the form
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 1. Install Dependencies
 
-## Expanding the ESLint configuration
+```bash
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 2. Configure Environment Variables
+
+Copy `server/.env.example` to `server/.env` and fill in real values.
+
+```bash
+cp server/.env.example server/.env
+```
+
+If you are on Windows PowerShell:
+
+```powershell
+Copy-Item server/.env.example server/.env
+```
+
+Required variables in `server/.env`:
+
+```env
+PORT=5000
+
+MONGODB_URI=mongodb://127.0.0.1:27017
+MONGODB_DB_NAME=portfolio_contact
+
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+
+MAIL_FROM=your-email@gmail.com
+MAIL_TO=your-email@gmail.com
+```
+
+Notes:
+
+- If you use Gmail, set up a Google App Password and use it in `SMTP_PASS`.
+- The database and collection are created automatically on first successful submission.
+
+## 3. Start App + API Together
+
+```bash
+npm run dev
+```
+
+This runs:
+
+- Vite client on `http://localhost:5173`
+- Express server on `http://localhost:5000`
+
+Vite proxies `/api/*` calls to the backend in development.
+
+## 4. Test the Contact Flow
+
+1. Open the site.
+2. Fill the contact form.
+3. Submit.
+4. Confirm:
+	 - You receive an email at `MAIL_TO`.
+	 - Document is stored in MongoDB database `MONGODB_DB_NAME`, collection `contact_messages`.
+
+## API
+
+- `GET /api/health` -> health check
+- `POST /api/contact` -> submit contact message
+
+Request body:
+
+```json
+{
+	"name": "Your Name",
+	"email": "you@example.com",
+	"message": "Hello from the portfolio form"
+}
+```
