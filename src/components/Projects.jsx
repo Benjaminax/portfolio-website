@@ -2,10 +2,20 @@ import React, { useState } from "react";
 import flappyImg from "../assets/images/flappy.png";
 import knowledgeHubImg from "../assets/images/knowlegde hub.png";
 import targetHittingThumb from "../assets/images/target hitting game .mp4";
+import thirdPersonShooterThumb from "../assets/images/Third Person Shooter.mp4";
 import mediaSorterImg from "../assets/images/media sorter.png";
 import blxstImg from "../assets/images/blxst.png"; // Add this import
 
 const projects = [
+	{
+		title: "Third Person Shooter (UE 5.7)",
+		description:
+			"A third-person shooter built in Unreal Engine 5.7 featuring sprint/crouch animation logic, aim offset and camera zoom while aiming, line-trace shooting, muzzle flash/audio effects, AI pawn sensing, enemy damage, and player/enemy health bars.",
+		image: thirdPersonShooterThumb,
+		link: "https://github.com/Benjaminax/portfolio-website",
+		tags: ["Unreal Engine", "Blueprints", "Animation", "Game Dev"],
+		isVideo: true,
+	},
 	{
 		title: "Knowledge Hub",
 		description:
@@ -45,6 +55,7 @@ const projects = [
 		image: targetHittingThumb,
 		link: "https://github.com/Benjaminax/Target-Hitting-Game",
 		tags: ["Unreal Engine", "C++", "Game Dev"],
+		isVideo: true,
 	},
 ];
 
@@ -100,7 +111,7 @@ const Projects = () => {
 						key={idx}
 						className="bg-[#181818]/80 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden flex flex-col border border-[#333] hover:scale-[1.025] transform-gpu backdrop-blur"
 					>
-						{project.title === "Target Hitting Game" ? (
+						{project.isVideo ? (
 							<video
 								src={project.image}
 								className="h-48 w-full object-cover"
