@@ -28,48 +28,54 @@ const buildIssue = () => {
 };
 
 const ensureServices = async () => {
-  const envIssue = buildIssue();
+  try {
+    const envIssue = buildIssue();
 
-  if (envIssue) {
-    cachedIssue = envIssue;
+    if (envIssue) {
+      cachedIssue = envIssue;
+      globalThis.__contactStartupIssue = cachedIssue;
+      return { ready: false, issue: cachedIssue };
+    }
+
+    if (!cachedClient) {
+      cachedClient = new MongoClient(process.env.MONGODB_URI);
+      await cachedClient.connect();
+      globalThis.__mongoClient = cachedClient;
+    }
+
+    if (!cachedCollection) {
+      const db = cachedClient.db(process.env.MONGODB_DB_NAME);
+      cachedCollection = db.collection('contact_messages');
+      globalThis.__contactMessagesCollection = cachedCollection;
+    }
+
+    if (!cachedTransport) {
+      cachedTransport = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: Number(process.env.SMTP_PORT),
+        secure: process.env.SMTP_SECURE === 'true',
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        },
+        tls: {
+          rejectUnauthorized: process.env.SMTP_TLS_REJECT_UNAUTHORIZED !== 'false',
+        },
+      });
+
+      await cachedTransport.verify();
+      globalThis.__contactMailTransport = cachedTransport;
+    }
+
+    cachedIssue = '';
+    globalThis.__contactStartupIssue = '';
+
+    return { ready: true, issue: '' };
+  } catch (error) {
+    cachedIssue = `Service initialization failed: ${error?.message || 'Unknown error'}`;
     globalThis.__contactStartupIssue = cachedIssue;
     return { ready: false, issue: cachedIssue };
   }
-
-  if (!cachedClient) {
-    cachedClient = new MongoClient(process.env.MONGODB_URI);
-    await cachedClient.connect();
-    globalThis.__mongoClient = cachedClient;
-  }
-
-  if (!cachedCollection) {
-    const db = cachedClient.db(process.env.MONGODB_DB_NAME);
-    cachedCollection = db.collection('contact_messages');
-    globalThis.__contactMessagesCollection = cachedCollection;
-  }
-
-  if (!cachedTransport) {
-    cachedTransport = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: process.env.SMTP_SECURE === 'true',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-      tls: {
-        rejectUnauthorized: process.env.SMTP_TLS_REJECT_UNAUTHORIZED !== 'false',
-      },
-    });
-
-    await cachedTransport.verify();
-    globalThis.__contactMailTransport = cachedTransport;
-  }
-
-  cachedIssue = '';
-  globalThis.__contactStartupIssue = '';
-
-  return { ready: true, issue: '' };
 };
 
 const submitContact = async ({ name, email, message, userAgent }) => {
