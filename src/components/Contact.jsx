@@ -109,10 +109,19 @@ const Contact = () => {
       body: JSON.stringify(payload),
     });
 
-    const data = await response.json();
+    const contentType = response.headers.get('content-type') || '';
+    let data = null;
+
+    if (contentType.includes('application/json')) {
+      data = await response.json();
+    } else {
+      const text = await response.text();
+      data = { error: text || `Request failed with status ${response.status}` };
+    }
 
     if (!response.ok) {
-      throw new Error(data?.error || 'Could not send your message.');
+      const message = data?.error || `Request failed with status ${response.status}`;
+      throw new Error(message);
     }
   };
 
