@@ -3,7 +3,7 @@ import flappyImg from "../assets/images/flappy.png";
 import knowledgeHubImg from "../assets/images/knowlegde hub.png";
 import targetHittingThumb from "../assets/images/target hitting game .mp4";
 import thirdPersonShooterThumb from "../assets/images/Third Person Shooter.web.mp4";
-import mediaSorterImg from "../assets/images/media sorter.png";
+import cineStreamThumb from "../assets/images/cine.mp4";
 import blxstImg from "../assets/images/blxst.png"; // Add this import
 
 const projects = [
@@ -33,12 +33,13 @@ const projects = [
 		tags: ["React", "Jotai", "Framer Motion", "Tailwind", "Game Dev"],
 	},
 	{
-		title: "Mediaflix",
+		title: "CineStream",
 		description:
-			"Automated Python program that organizes downloaded files into movies and series using naming conventions, file sizes, and formats. Handles edge cases, Blu-ray tags, and special characters for accurate sorting.",
-		image: mediaSorterImg,
-		link: "https://github.com/Benjaminax/Mediaflix",
-		tags: ["Python", "Automation", "File System"],
+			"Desktop movie and TV hub built with React + TypeScript in Electron. It combines TMDB discovery, local media library scanning, metadata enrichment, and VLC-based playback controls for a streaming-style experience with local file support.",
+		image: cineStreamThumb,
+		link: "https://github.com/Benjaminax/cinema.git",
+		tags: ["Electron", "React", "TypeScript", "TMDB", "VLC"],
+		isVideo: true,
 	},
 	{
 		title: "Flappy Bird Game",
@@ -59,15 +60,16 @@ const projects = [
 	},
 ];
 
-const allTags = [
-	...new Set(projects.flatMap((project) => project.tags)),
-];
-
 const normalizeTag = (tag) => tag.toLowerCase().trim();
 
 const filterTags = [
 	{ label: "All", value: "all" },
-	...allTags.map((tag) => ({ label: tag, value: normalizeTag(tag) })),
+	{ label: "React", value: "react" },
+	{ label: "Game Dev", value: "game dev" },
+	{ label: "Unreal Engine", value: "unreal engine" },
+	{ label: "Electron", value: "electron" },
+	{ label: "Full Stack", value: "full stack" },
+	{ label: "TypeScript", value: "typescript" },
 ];
 
 const Projects = () => {
