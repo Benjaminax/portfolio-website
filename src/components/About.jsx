@@ -310,12 +310,12 @@ const About = () => {
           <div className="w-[80px] sm:w-[121px] h-[7px] sm:h-[9px] rounded-[25px] bg-gradient-to-r from-[#9EF170] to-[#0E0E0E] mx-auto"></div>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-start relative gap-8">
+        <div className="flex flex-col xl:flex-row items-start relative gap-8">
           {/* Vertical Line & Text */}
-          <div className="flex flex-col lg:flex-row w-full lg:w-1/2">
+          <div className="flex flex-col xl:flex-row w-full xl:w-1/2">
             {/* Vertical Line */}
             <div
-              className="hidden lg:flex relative mb-4 lg:mb-0 lg:mr-8 flex-col items-center"
+              className="hidden xl:flex relative mb-4 xl:mb-0 xl:mr-8 flex-col items-center"
               style={{ minWidth: 6 }}
             >
               <div
@@ -361,7 +361,7 @@ const About = () => {
           </div>
 
           {/* BarChart and FunTimeline stacked vertically */}
-          <div className="w-full lg:w-1/2 flex flex-col mt-8 lg:mt-0">
+          <div className="w-full xl:w-1/2 flex flex-col mt-8 xl:mt-0">
             <BarChart />
             <FunTimeline />
           </div>

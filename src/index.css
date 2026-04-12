@@ -13,6 +13,7 @@ body {
 
 html {
   overflow-x: hidden; /* Prevent horizontal scroll */
+  scroll-behavior: smooth;
 }
 
 /* Add this to your global CSS file */
@@ -24,5 +25,19 @@ html {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes autoTiltMobile {
+  0% { transform: perspective(600px) rotateX(0deg) rotateY(0deg) scale(1); }
+  25% { transform: perspective(600px) rotateX(4deg) rotateY(-3deg) scale(1.02); }
+  50% { transform: perspective(600px) rotateX(-2deg) rotateY(4deg) scale(1); }
+  75% { transform: perspective(600px) rotateX(3deg) rotateY(2deg) scale(1.01); }
+  100% { transform: perspective(600px) rotateX(0deg) rotateY(0deg) scale(1); }
+}
+
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  .contact-card-mobile-anim {
+    animation: autoTiltMobile 6s ease-in-out infinite !important;
   }
 }

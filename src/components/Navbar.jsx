@@ -7,6 +7,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const hideTimeout = useRef(null);
   const navbarRef = useRef(null);
+  const lastScrollY = useRef(0);
 
   // --- Detect clicks outside navbar/menu ---
   useEffect(() => {
@@ -27,13 +28,15 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const atTop = window.scrollY === 0;
+      const currentScrollY = window.scrollY;
+      const atTop = currentScrollY === 0;
       setScrolled(!atTop);
 
       // --- Prevent navbar from hiding when menu is open ---
       if (menuOpen) {
         setVisible(true);
         if (hideTimeout.current) clearTimeout(hideTimeout.current);
+        lastScrollY.current = currentScrollY;
         return;
       }
 
@@ -41,19 +44,26 @@ const Navbar = () => {
       if (atTop) {
         setVisible(true);
         if (hideTimeout.current) clearTimeout(hideTimeout.current);
+        lastScrollY.current = currentScrollY;
         return;
       }
 
-      // Show navbar on scroll
-      setVisible(true);
+      // Hide navbar when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
 
       // Clear previous timeout
       if (hideTimeout.current) clearTimeout(hideTimeout.current);
 
-      // Hide navbar after 20s of inactivity (not at top)
+      // Hide navbar after 10s of inactivity (not at top)
       hideTimeout.current = setTimeout(() => {
         setVisible(false);
-      }, 15000);
+      }, 10000);
+
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -84,7 +94,7 @@ const Navbar = () => {
   return (
     <div
       ref={navbarRef}
-      className={`fixed top-0 left-0 w-full z-50 transition-transform duration-500 ${
+      className={`fixed top-0 left-0 w-full z-[999] transition-transform duration-500 ${
         visible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
@@ -108,7 +118,7 @@ const Navbar = () => {
         </div>
         
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-[19px] items-center ml-[650px]">
+        <div className="hidden xl:flex gap-[19px] items-center ml-auto mr-12">
           <span
             className={`font-montserrat text-[14px] font-bold cursor-pointer ${textNav}`}
             onClick={() => {
@@ -158,7 +168,7 @@ const Navbar = () => {
         
 
         {/* Hamburger Icon for Mobile */}
-        <div className="md:hidden flex items-center ml-auto pr-0 mr-2">
+        <div className="xl:hidden flex items-center ml-auto pr-0 mr-2">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="focus:outline-none group"
@@ -199,7 +209,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-[79px] left-0 w-full bg-[#232323] z-40 flex flex-col items-end pr-6 py-6 gap-6 shadow-lg transition-transform duration-500 ${
+        className={`xl:hidden fixed top-[79px] left-0 w-full bg-[#232323] z-[998] flex flex-col items-end pr-6 py-6 gap-6 shadow-lg transition-transform duration-500 ${
           menuOpen
             ? 'translate-y-0 opacity-100 pointer-events-auto'
             : '-translate-y-8 opacity-0 pointer-events-none'

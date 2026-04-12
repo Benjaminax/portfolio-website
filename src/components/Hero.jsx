@@ -38,10 +38,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="w-full max-w-[1800px] mx-auto min-h-[700px] flex flex-col md:flex-row justify-between items-start px-4 md:px-[20px] pt-[60px] md:pt-[220px] relative">
+    <section className="w-full max-w-[1800px] mx-auto min-h-[700px] flex flex-col xl:flex-row justify-between items-start px-4 md:px-[20px] pt-[60px] md:pt-[220px] relative">
       {/* Left content */}
       <motion.div
-        className="flex flex-col justify-start w-full md:w-[700px] mt-6 md:mt-10 items-start"
+        className="flex flex-col justify-start w-full xl:w-[700px] mt-6 md:mt-10 items-start"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -170,13 +170,13 @@ const Hero = () => {
 
       {/* Code window */}
       <motion.div
-        className="relative w-full md:w-[440px] h-[320px] md:h-[402px] flex items-center mt-8 md:mt-0 ml-0 mr-0"
+        className="relative w-full xl:w-[440px] h-[320px] md:h-[402px] flex items-center mt-8 xl:mt-0 ml-0 mr-0"
         variants={codeVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Window controls */}
-        <div className="absolute left-0 top-[16px] z-[3] w-full md:w-[440px]">
+        <div className="absolute left-0 top-[16px] z-[3] w-full xl:w-[440px]">
           <div className="w-full h-[32px] flex items-center rounded-t-[23px] bg-[#2F2E2E] px-6">
             <svg width="60" height="14" viewBox="0 0 60 14" fill="none" className="mr-3 -mt-1">
               <circle cx="7" cy="7" r="7" fill="#F87171"/>
@@ -192,7 +192,7 @@ const Hero = () => {
           </div>
         </div>
         {/* Code content with syntax highlighting */}
-        <div className="absolute left-0 top-[44px] w-full md:w-[440px] h-[258px] md:h-[358px] rounded-b-[23px] bg-[#121212] shadow-[0px_12px_10.2px_rgba(0,0,0,0.25)] z-[3] px-0 py-0 flex items-start border-b-4 border-[#9EF170]">
+        <div className="absolute left-0 top-[44px] w-full xl:w-[440px] h-[276px] md:h-[358px] rounded-b-[23px] bg-[#121212] shadow-[0px_12px_10.2px_rgba(0,0,0,0.25)] z-[3] px-0 py-0 flex items-start border-b-4 border-[#9EF170]">
           <pre className="font-fira-code text-[10px] md:text-[13px] leading-[1.5] text-left text-white w-full h-full px-4 md:px-7 py-3 m-0 whitespace-pre-wrap overflow-hidden">
             <span className="text-[#4E84C6]">class</span> <span className="text-[#4ADE80]">Developer</span> {'{'}<br />
     {'  '}

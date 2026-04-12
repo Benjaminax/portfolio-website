@@ -166,10 +166,10 @@ const Contact = () => {
 
   return (
     <section
-      className="w-full max-w-[1800px] h-auto md:h-[600px] mx-auto relative rounded-t-[25px] mt-[350px] md:mt-0 z-[80]"
+      className="w-full max-w-[1800px] h-auto xl:h-[600px] mx-auto relative rounded-t-[25px] mt-[350px] md:mt-0 z-[80] scroll-mt-[100px]"
       id="contact"
     >
-      <div className="w-full h-auto md:h-full rounded-t-[25px] bg-[#CFC9BB] relative z-[80] px-4 md:px-[145px] py-8 md:py-[49px] mt-10 md:mt-[250px] flex flex-col md:flex-row items-start gap-8 overflow-visible">
+      <div className="w-full h-auto xl:h-full rounded-t-[25px] bg-[#CFC9BB] relative z-[80] px-4 md:px-12 xl:px-[145px] py-8 md:py-[49px] mt-10 md:mt-[250px] flex flex-col xl:flex-row items-center xl:items-start gap-8 lg:gap-12 overflow-visible">
         <div className="flex-1 flex flex-col justify-start">
           <h2 className="font-montserrat text-[48px] md:text-[96px] lg:text-[128px] font-bold text-black mb-0 text-left leading-none">
             Contact
@@ -190,7 +190,7 @@ const Contact = () => {
         <div
           ref={cardRef}
           style={cardStyle}
-          className="w-full md:w-[420px] min-h-[460px] rounded-[28px] md:rounded-[40px] relative z-[90] flex-shrink-0 will-change-transform overflow-hidden px-5 md:px-7 py-5 md:py-7"
+          className="w-full sm:w-[420px] xl:w-[420px] min-h-[460px] rounded-[28px] md:rounded-[40px] relative z-[90] flex-shrink-0 will-change-transform overflow-hidden px-5 md:px-7 py-5 md:py-7 contact-card-mobile-anim"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
