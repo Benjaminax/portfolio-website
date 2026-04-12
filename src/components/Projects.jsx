@@ -12,7 +12,7 @@ const projects = [
 		description:
 			"A third-person shooter built in Unreal Engine 5.7 featuring sprint/crouch animation logic, aim offset and camera zoom while aiming, line-trace shooting, muzzle flash/audio effects, AI pawn sensing, enemy damage, and player/enemy health bars.",
 		image: thirdPersonShooterThumb,
-		link: "https://github.com/Benjaminax/portfolio-website",
+		link: "https://github.com/Benjaminax/Third-Person-Game",
 		tags: ["Unreal Engine", "Blueprints", "Animation", "Game Dev"],
 		isVideo: true,
 	},
