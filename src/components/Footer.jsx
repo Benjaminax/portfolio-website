@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4 mt-4 text-2xl">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/Benjaminax"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors text-[#181A1B] hover:text-black hover:bg-[#9EF170] rounded-full p-1"
@@ -30,7 +30,7 @@ const Footer = () => {
                 <FaGithub />
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/benjamin-acheampong-7274b12a1/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors text-[#181A1B] hover:text-black hover:bg-[#9EF170] rounded-full p-1"
@@ -76,7 +76,7 @@ const Footer = () => {
               <ul className="space-y-1 text-gray-500 text-sm">
                 <li>
                   <a
-                    href="https://github.com/yourusername"
+                    href="https://github.com/Benjaminax"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-[#9EF170]"
@@ -86,7 +86,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://linkedin.com/in/yourusername"
+                    href="https://www.linkedin.com/in/benjamin-acheampong-7274b12a1/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-[#9EF170]"

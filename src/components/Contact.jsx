@@ -236,7 +236,7 @@ const Contact = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/your-linkedin-username"
+              href="https://www.linkedin.com/in/benjamin-acheampong-7274b12a1/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between rounded-xl border border-[#cde9bc] bg-white/70 px-3 py-2 text-sm font-montserrat text-black transition-colors hover:bg-[#eaffdd]"
