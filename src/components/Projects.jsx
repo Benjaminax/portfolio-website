@@ -105,21 +105,19 @@ const Projects = () => {
 			<h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-center tracking-tight">
 				My Projects
 			</h2>
-			{/* Filter */}
-			<div className="flex flex-wrap gap-2 justify-center mb-12 px-4">
-				{filterTags.map((tag) => (
-					<button
-						key={tag.value}
-						className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 transform hover:scale-105 ${
-							selectedTag === tag.value
-								? "bg-gradient-to-r from-[#9EF170] to-[#b6ff8a] text-[#0a0a0a] shadow-lg shadow-[#9EF170]/50"
-								: "bg-[#1a1a1a] text-[#9EF170] border border-[#9EF170]/40 hover:border-[#9EF170] hover:shadow-md hover:shadow-[#9EF170]/20"
-						}`}
-						onClick={() => setSelectedTag(tag.value)}
-					>
-						{tag.label}
-					</button>
-				))}
+			{/* Filter Dropdown */}
+			<div className="flex justify-center mb-12 px-4">
+				<select
+					value={selectedTag}
+					onChange={e => setSelectedTag(e.target.value)}
+					className="bg-[#1a1a1a] text-[#9EF170] border border-[#9EF170]/40 hover:border-[#9EF170] focus:border-[#9EF170] focus:ring-2 focus:ring-[#9EF170]/40 rounded-lg px-4 py-2 text-sm font-semibold shadow-md transition-all duration-300 outline-none"
+				>
+					{filterTags.map(tag => (
+						<option key={tag.value} value={tag.value} className="bg-[#1a1a1a] text-[#9EF170]">
+							{tag.label}
+						</option>
+					))}
+				</select>
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
 				{filteredProjects.map((project, idx) => (
