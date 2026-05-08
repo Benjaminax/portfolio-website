@@ -129,6 +129,7 @@ const Footer = () => {
         </div>
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center py-4 border-t border-gray-200 mt-4 text-gray-500 text-xs">
+          <span className="mb-1 md:mb-0">In God we trust</span>
           <span>
             © {new Date().getFullYear()} Benjamin Acheampong. All rights reserved.
           </span>
