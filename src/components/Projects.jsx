@@ -105,19 +105,29 @@ const Projects = () => {
 			<h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-center tracking-tight">
 				My Projects
 			</h2>
-			{/* Filter Dropdown */}
-			<div className="flex justify-center mb-12 px-4">
-				<select
-					value={selectedTag}
-					onChange={e => setSelectedTag(e.target.value)}
-					className="bg-[#1a1a1a] text-[#9EF170] border border-[#9EF170]/40 hover:border-[#9EF170] focus:border-[#9EF170] focus:ring-2 focus:ring-[#9EF170]/40 rounded-lg px-4 py-2 text-sm font-semibold shadow-md transition-all duration-300 outline-none"
-				>
-					{filterTags.map(tag => (
-						<option key={tag.value} value={tag.value} className="bg-[#1a1a1a] text-[#9EF170]">
-							{tag.label}
-						</option>
-					))}
-				</select>
+			{/* Filter Dropdown - Enhanced UI */}
+			<div className="flex flex-col items-center mb-12 px-4">
+				<label htmlFor="project-filter" className="mb-2 text-[#b6ff8a] text-base font-semibold tracking-wide flex items-center gap-2">
+					<span className="inline-block w-4 h-4 bg-gradient-to-tr from-[#9EF170] to-[#b6ff8a] rounded-full mr-1"></span>
+					Filter Projects
+				</label>
+				<div className="relative w-full max-w-xs">
+					<select
+						id="project-filter"
+						value={selectedTag}
+						onChange={e => setSelectedTag(e.target.value)}
+						className="appearance-none w-full bg-[#181A1B] text-[#9EF170] border-2 border-[#9EF170]/60 focus:border-[#b6ff8a] focus:ring-2 focus:ring-[#b6ff8a]/30 rounded-xl px-5 py-3 text-base font-semibold shadow-lg transition-all duration-300 outline-none pr-10"
+					>
+						{filterTags.map(tag => (
+							<option key={tag.value} value={tag.value} className="bg-[#181A1B] text-[#9EF170]">
+								{tag.label}
+							</option>
+						))}
+					</select>
+					<span className="pointer-events-none absolute right-4 top-1/2 transform -translate-y-1/2 text-[#b6ff8a] text-lg">
+						<svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 8l5 5 5-5" stroke="#b6ff8a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+					</span>
+				</div>
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
 				{filteredProjects.map((project, idx) => (
