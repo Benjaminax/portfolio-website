@@ -1,18 +1,32 @@
-# Portfolio Website Contact Form
 
-This project now includes a full contact flow:
+# Portfolio Website
 
-- React contact form in `src/components/Contact.jsx`
-- Express API route at `POST /api/contact`
-- Email notifications sent to your inbox whenever someone submits the form
+A modern, responsive portfolio website built with React and Tailwind CSS. Features a clean design, smooth animations, a fully functional contact form with email notifications, and showcases your projects and skills.
 
-## 1. Install Dependencies
+## Features
+
+- **Responsive design:** Seamlessly adapts to desktop, tablet, and mobile devices.
+- **Contact form:** Fully functional form with email notifications via Nodemailer.
+- **Express backend:** API route for handling form submissions securely.
+- **Modern UI:** Built with React and styled using Tailwind CSS.
+- **Smooth animations:** Subtle transitions and interactions for a polished experience.
+
+## Getting started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Benjaminax/portfolio-website.git
+cd portfolio-website
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-## 2. Configure Environment Variables
+### 3. Configure environment variables
 
 Copy `server/.env.example` to `server/.env` and fill in real values.
 
@@ -41,11 +55,9 @@ MAIL_FROM=your-email@gmail.com
 MAIL_TO=your-email@gmail.com
 ```
 
-Notes:
+**Note:** If you use Gmail, set up a Google App Password and use it in `SMTP_PASS`.
 
-- If you use Gmail, set up a Google App Password and use it in `SMTP_PASS`.
-
-## 3. Start App + API Together
+### 4. Start the application
 
 ```bash
 npm run dev
@@ -58,20 +70,18 @@ This runs:
 
 Vite proxies `/api/*` calls to the backend in development.
 
-## 4. Test the Contact Flow
+### 5. Build for production
 
-1. Open the site.
-2. Fill the contact form.
-3. Submit.
-4. Confirm:
-   - You receive an email at `MAIL_TO`.
+```bash
+npm run build
+```
 
-## API
+## API endpoints
 
 - `GET /api/health` -> health check
 - `POST /api/contact` -> submit contact message
 
-Request body:
+**Request body:**
 
 ```json
 {
@@ -80,3 +90,61 @@ Request body:
 	"message": "Hello from the portfolio form"
 }
 ```
+
+## Testing the contact flow
+
+1. Open the site at `http://localhost:5173`
+2. Navigate to the contact section
+3. Fill out the form with your details
+4. Submit
+5. Confirm you receive an email at `MAIL_TO`
+
+## Dependencies
+
+- **React:** Frontend UI library
+- **Tailwind CSS:** Utility-first CSS framework
+- **Express:** Backend API framework
+- **Nodemailer:** Email sending functionality
+- **Vite:** Development server and build tool
+- **React Router DOM:** Navigation and routing
+
+## Project structure
+
+```
+portfolio-website/
+├── src/
+│   ├── components/
+│   │   ├── Contact.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Skills.jsx
+│   │   └── Navbar.jsx
+│   ├── App.jsx
+│   └── main.jsx
+├── server/
+│   ├── .env
+│   ├── .env.example
+│   └── server.js
+├── public/
+├── index.html
+├── package.json
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+```
+
+## Screenshots
+
+![blxst](src/assets/images/blxst.png)
+![flappy](src/assets/images/flappy.png)
+![knowledge hub](src/assets/images/knowlegde%20hub.png)
+![media sorter](src/assets/images/media%20sorter.png)
+
+## Socials
+
+If you have any questions, you can reach me here:
+
+- **Instagram:** [@_.benjamin.a._](https://www.instagram.com/_.benjamin.a._/)
+- **GitHub:** [Benjaminax](https://github.com/Benjaminax/)
+- **Email:** kojoben29@gmail.com
+
+In God we trust
