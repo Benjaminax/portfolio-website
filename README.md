@@ -134,10 +134,10 @@ portfolio-website/
 
 ## Screenshots
 
-![blxst](src/assets/images/blxst.png)
-![flappy](src/assets/images/flappy.png)
-![knowledge hub](src/assets/images/knowlegde%20hub.png)
-![media sorter](src/assets/images/media%20sorter.png)
+![Screenshot 1](src/screenshots/Screenshot%202026-05-12%20195131.png)
+![Screenshot 2](src/screenshots/Screenshot%202026-05-12%20195150.png)
+![Screenshot 3](src/screenshots/Screenshot%202026-05-12%20195159.png)
+![Screenshot 4](src/screenshots/Screenshot%202026-05-12%20195213.png)
 
 ## Socials
 
