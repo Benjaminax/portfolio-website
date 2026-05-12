@@ -141,9 +141,10 @@ portfolio-website/
 
 ## Socials
 
+
 If you have any questions, you can reach me here:
 
-- **Instagram:** [@_.benjamin.a._](https://www.instagram.com/_.benjamin.a._/)
+- **Instagram:** [@_.benjamin.a._](https://instagram.com/_benjamin.a._)
 - **GitHub:** [Benjaminax](https://github.com/Benjaminax/)
 - **Email:** kojoben29@gmail.com
 
