@@ -5,6 +5,7 @@ import targetHittingThumb from "../assets/images/target hitting game .mp4";
 import thirdPersonShooterThumb from "../assets/images/Third Person Shooter.web.mp4";
 import cineStreamThumb from "../assets/images/cine.web.mp4";
 import blxstImg from "../assets/images/blxst.png"; // Add this import
+import pdfGravityImg from "../assets/images/PDF GRAVITY.png";
 
 const projects = [
 	{
@@ -58,33 +59,29 @@ const projects = [
 		tags: ["Unreal Engine", "C++", "Game Dev"],
 		isVideo: true,
 	},
+	{
+		title: "PDF Gravity",
+		description:
+			"Web app for creating and manipulating PDFs — merge, split, compress, OCR, and AI summarization. Integrates image/LaTeX conversion and third-party PDF services.",
+		image: pdfGravityImg,
+		link: "https://pdf-x-theta.vercel.app/",
+		tags: ["React", "PDF", "OCR", "AI"],
+	},
 ];
 
 const normalizeTag = (tag) => tag.toLowerCase().trim();
 
+// Build filter options from project tags so every tag is available in the dropdown.
+const uniqueTags = Array.from(
+	projects.reduce((acc, project) => {
+		project.tags.forEach(t => acc.add(t));
+		return acc;
+	}, new Set()),
+).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+
 const filterTags = [
 	{ label: "All", value: "all" },
-	{ label: "React", value: "react" },
-	{ label: "Electron", value: "electron" },
-	{ label: "TypeScript", value: "typescript" },
-	{ label: "Game Dev", value: "game dev" },
-	{ label: "Unreal Engine", value: "unreal engine" },
-	{ label: "Unity", value: "unity" },
-	{ label: "C#", value: "c#" },
-	{ label: "C++", value: "c++" },
-	{ label: "Python", value: "python" },
-	{ label: "Express.js", value: "express.js" },
-	{ label: "MongoDB", value: "mongodb" },
-	{ label: "Tailwind", value: "tailwind" },
-	{ label: "Full Stack", value: "full stack" },
-	{ label: "TMDB", value: "tmdb" },
-	{ label: "VLC", value: "vlc" },
-	{ label: "Blueprints", value: "blueprints" },
-	{ label: "Animation", value: "animation" },
-	{ label: "Framer Motion", value: "framer motion" },
-	{ label: "Jotai", value: "jotai" },
-	{ label: "Automation", value: "automation" },
-	{ label: "File System", value: "file system" },
+	...uniqueTags.map(tag => ({ label: tag, value: normalizeTag(tag) })),
 ];
 
 const Projects = () => {
@@ -152,7 +149,7 @@ const Projects = () => {
 							<img
 								src={project.image}
 								alt={project.title}
-								className="h-48 w-full object-cover"
+								className="h-48 w-full object-cover filter saturate-150 contrast-105 grayscale-0 hover:grayscale-0 hover:saturate-150 hover:brightness-105 transition-all duration-300"
 							/>
 						)}
 						<div className="p-6 flex flex-col flex-1">
