@@ -65,7 +65,7 @@ const projects = [
 			"Web app for creating and manipulating PDFs — merge, split, compress, OCR, and AI summarization. Integrates image/LaTeX conversion and third-party PDF services.",
 		image: pdfGravityImg,
 		link: "https://pdf-x-theta.vercel.app/",
-		tags: ["React", "PDF", "OCR", "AI"],
+		tags: ["React", "Vite", "Tailwind", "PDF", "OCR", "AI"],
 	},
 ];
 
